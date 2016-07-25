@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="./lib/css/account.css">
+<script type="text/javascript" src="./lib/jquery/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="./lib/js/admin.js"></script>
+<head>
+	<meta charset="UTF-8">
+	<title>管理员操作</title>
+</head>
+<body>
+	<div class="header">
+		<div class="header_r fr">欢迎您，{$username}</div>
+	</div>
+	
+	<div class="main cont">
+		<div class="title">
+			<div class="fl">
+				<h2>管理员操作</h2>
+			</div>
+		</div>
+		<hr>
+		<div class="list cont">
+			<h3>账号基本信息</h3>
+			<hr>
+			<form action="index.php?action=admin" method="post">
+			<table class="table">
+				<tr>
+					<th>编号</th>
+					<th>uid</th>
+					<th>用户名</th>
+					<th>账号类型</th>
+					<th>等级</th>
+					<th>创建时间</th>
+					<th>登录时间</th>
+					<th>积分</th>
+					<th>操作</th>
+				</tr>
+
+				{assign var="i" value="{$pageLength*($pageNum-1)+1}"}
+				{assign var="j" value="0"}
+				{foreach $user as $value}
+				<tr>
+					<td>{$i}</td>
+					<td>{$value['uid']}</td>
+					<td>{$user_name[$j]}</td>
+					<td>{if $value['type'] == 0}普通帐号{else}邮箱帐号{/if}</td>
+					<td>{$value['level']}</td>
+					<td>{$value['create_time']}</td>
+					<td>{$value['login_time']}</td>
+					<td>{$value['points']}</td>
+					<td>
+					<input type="submit" value="删除" onclick="del({$value['uid']});">
+					<input type="submit" value="提升一级" onclick="levelup({$value['uid']});">
+					<input type="submit" value="降低一级" onclick="leveldown({$value['uid']});">
+					</td>
+				</tr>
+				{$i=$i+1}
+				{$j=$j+1}
+				{/foreach}
+			</table>
+			<input type="hidden" name="act_type" id="act_type">
+			<input type="hidden" name="act_num" id="act_num">
+			<input type="hidden" name="page" id="page" value="{$pageNum}">
+			</form>
+			<hr>
+			<p>共有 <label class="red">{$count}</label> 名您可以管理的用户,此屏显示从第 <label class="red">{$pageLength*($pageNum-1)+1}</label> 条开始，到第 <label class="red">{$i-1}</label> 条结束的用户记录</p>
+			<p>
+			<br>
+			<div class="pageNav">
+			
+			{if $pageNum!=1}
+			<a href="index.php?action=admin&page=1">首页</a>
+			<a href="index.php?action=admin&page={$pageNum-1}">上一页</a>
+			{else}
+			首页 上一页
+			{/if}
+			{foreach $pageNav as $val}
+				{if $val==$pageNum}
+					{$val}
+				{else}
+					<a href="index.php?action=admin&page={$val}">{$val}</a>
+				{/if}
+			{/foreach}
+			
+			{if $pageNum!=$pageSum}
+			<a href="index.php?action=admin&page={$pageNum+1}">下一页</a>
+			<a href="index.php?action=admin&page={$pageSum}">尾页</a>
+			{else}
+			下一页 尾页
+			{/if}
+			
+				<p>
+				<form action="index.php" method="get">
+					<label>跳转到</label>
+					<input type="hidden" name="action" value="admin">
+					<input type="text" name="page" id="page"  placeholder="{$pageNum}">
+					<label>页</label>
+					<input type="submit" value="Go">
+				</form>
+					
+				</p>
+			</div>
+			
+			<br>
+			</p>
+		</div>
+		<div>
+			<a href="index.php?action=main">单击返回上一层</a>
+		</div>
+	</div>
+	<div class="footer_blank"></div>
+	<div class="footer">
+		<p class="fr">Powered by lin &copy; 2016</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="./lib/css/account.css">
+<script type="text/javascript" src="./lib/jquery/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="./lib/js/changepw.js"></script>
+<head>
+	<meta charset="UTF-8">
+	<title>修改密码</title>
+</head>
+<body>
+	<div class="header">
+		<div class="header_r fr">欢迎您，{$username}</div>
+	</div>
+	
+	<div class="main cont">
+		<div class="title">
+			<div class="fl">
+				<h2>修改密码</h2>
+			</div>
+		</div>
+		<hr>
+		<div class="list">
+			<h3>密码修改</h3>
+			<form autocomplete="off" action="index.php?action=changepw" method="post" onsubmit="return checksubmit();">
+				<ul>
+				<li><span>原密码</span> <input type="password" name="pre_pw" id="pre_pw" value="{$pre_pw}"></li>
+				<li><span>新密码</span> <input type="password" name="new_pw" id="new_pw" value="{$new_pw}"></li>
+				<li><span>重复输入新密码</span> <input type="password" name="new_pw2" id="new_pw2" value="{$new_pw2}"></li>
+				<li><input type="submit" value="修改密码"></li>
+				<li><p class="msg red">{$msg}</p></li>
+				</ul>
+			</form>
+		</div>
+		<div>
+			<a href="index.php?action=main">单击返回上一层</a>
+		</div>
+	</div>
+	<div class="footer">
+		<p class="fr">Powered by lin &copy; 2016</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="./lib/css/account.css">
+<head>
+	<meta charset="UTF-8">
+	<title>我的帐号</title>
+</head>
+<body>
+	<div class="header">
+		<div class="header_r fr">欢迎您，{$username}</div>
+	</div>
+	
+	<div class="main cont">
+		<div class="title">
+			<div class="fl">
+				<h2>我的帐号</h2>
+			</div>
+		</div>
+		<hr>
+		<div class="list">
+			<h3>账号基本信息</h3>
+			<ul>
+				<li><span>uid:</span><label class="red">{$uid}</label></li>
+				<li><span>账户名:</span><label class="red">{$username}</label></li>
+				<li><span>注册时间:</span><label class="red">{$create_time}</label></li>
+				<li><span>上次登录时间:</span><label class="red">{$login_time}</label></li>
+				<li><span>账号等级:</span><label class="red">{$level}</label></li>
+				<li><span>积分:</span><label class="red">{$points}</label></li>
+			</ul>
+		</div>
+		<div>
+			<a href="javascript:history.back(-1);">单击返回上一层</a>
+		</div>
+	</div>
+	<div class="footer">
+		<p class="fr">Powered by lin &copy; 2016</p>
+	</div>
+</body>
+</html>

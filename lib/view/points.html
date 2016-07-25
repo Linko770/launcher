@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="./lib/css/account.css">
+<head>
+	<meta charset="UTF-8">
+	<title>积分管理</title>
+</head>
+<body>
+	<div class="header">
+		<div class="header_r fr">欢迎您，{$username}</div>
+	</div>
+	
+	<div class="main cont">
+		<div class="title">
+			<div class="fl">
+				<h2>积分管理</h2>
+			</div>
+		</div>
+		<hr>
+		<div class="list">
+			<p>您现在拥有的积分为:</p>
+			<p class="points red">{$points}</p>
+			<p>您当前的等级为:</p>
+			<p class="points red">{$level}</p>
+			<p>您所在等级可以做下面的事:</p>
+			{foreach $power as $val}
+			<p class="points red">{$val}</p>
+			{/foreach}
+		</div>
+		<div>
+			<a href="javascript:history.back(-1);">单击返回上一层</a>
+		</div>
+	</div>
+	<div class="footer">
+		<p class="fr">Powered by lin &copy; 2016</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" type="text/css" href="./lib/css/main.css">
+<head>
+	<meta charset="UTF-8">
+	<title>lin的登录系统DEMO</title>
+</head>
+<body>
+	<div class="header">
+		<div class="header_r fr">欢迎您，{$username}</div>
+	</div>
+	
+	<div class="main cont">
+		<div class="title">
+			<div class="fl">
+				<h2>Welcome to lin's login system</h2>
+				<p>欢迎回来，您上次的登录时间为:{$login_time}</p>
+			</div>
+			<div class="short fr">
+				<p>积分:{$points}  
+				等级:{$level}</p>
+			</div>
+		</div>
+		<hr>
+		<div class="list cont">
+			<h3>要进行的操作</h3>
+			<ul>
+				<li><a href="index.php?action=account">我的帐号</a><br></li>
+				<li><a href="index.php?action=changepw">修改密码</a><br></li>
+				<li><a href="index.php?action=points">积分管理</a><br></li>
+				<li><a href="index.php?action=secret">密保问题</a><br></li>
+				{if $level>=4}
+				<li><a href="index.php?action=admin">管理员操作</a><br></li>
+				{/if}
+				<li><a href="index.php?action=logout">安全退出</a><br></li>
+			</ul>	
+		</div>
+	</div>
+	<div class="footer">
+		<p class="fr">Powered by lin &copy; 2016</p>
+	</div>
+</body>
+</html>
